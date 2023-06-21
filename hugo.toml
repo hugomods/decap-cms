@@ -1,0 +1,19 @@
+[module.hugoVersion]
+min = "0.111.3"
+# extended = true
+
+[outputFormats]
+[outputFormats.DecapCMSConfig]
+baseName = "decap-cms-config"
+isHTML = false
+notAlternative = true
+mediaType = "application/yaml"
+
+[params.decap_cms]
+# local_backend = false
+publish_mode = "editorial_workflow"
+media_folder = "static/images/uploads"
+public_folder = "/images/uploads"
+search = true
+
+# [params.decap_cms.backend]
