@@ -10,7 +10,6 @@
     {{- end }}
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/cms.js"></script>
+    <script src="{{ default `https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js` site.Params.decap_cms.js_url }}"></script>
   </body>
 </html>
