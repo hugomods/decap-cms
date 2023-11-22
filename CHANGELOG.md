@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/hugomods/decap-cms/compare/v0.2.0...v0.3.0) (2023-11-22)
+
+
+### Features ✨
+
+* add the decap-cms/hooks/body-end hook for customizing Decap CMS ([#31](https://github.com/hugomods/decap-cms/issues/31)) ([e68b7cf](https://github.com/hugomods/decap-cms/commit/e68b7cf6914eaf55b7887613262cd26f467e8ab1))
+
 ## [0.2.0](https://github.com/hugomods/decap-cms/compare/v0.1.0...v0.2.0) (2023-11-16)
 
 
