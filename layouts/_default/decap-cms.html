@@ -11,5 +11,6 @@
   </head>
   <body>
     <script src="{{ default `https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js` site.Params.decap_cms.js_url }}"></script>
+    {{ partialCached "decap-cms/hooks/body-end" . }}
   </body>
 </html>
