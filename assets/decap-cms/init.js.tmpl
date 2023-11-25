@@ -1,0 +1,28 @@
+{{- $widgets := slice }}
+{{- range resources.Match "decap-cms/widgets/*.js" }}
+  {{- $name := replace .Name "decap-cms/widgets/" "" }}
+  {{- $name = replaceRE ".js$" "" $name }}
+  {{- $widgetName := replaceRE `[^\w_]` "_" (printf "widget_%s" $name) }}
+  {{- printf `import * as %s from "./widgets/%s";` $widgetName $name }}
+  {{- $widgets = $widgets | append $widgetName }}
+{{- end }}
+{{- $editorComponents := slice }}
+{{- range resources.Match "decap-cms/editor-components/*.js" }}
+  {{- $name := replace .Name "decap-cms/editor-components/" "" }}
+  {{- $name = replaceRE ".js$" "" $name }}
+  {{- $componentName := replaceRE `[^\w_]` "_" (printf "editor_component_%s" $name) }}
+  {{- printf `import { default as %s } from "./editor-components/%s";` $componentName $name }}
+  {{- $editorComponents = $editorComponents | append $componentName }}
+{{- end }}
+const plainPreview = createClass({
+  render: function() {
+    return this.props.value;
+  }
+});
+const emptySchema = {};
+{{- range $widgets }}
+  {{- printf "CMS.registerWidget(%s.name, %s.control, %s.preview ?? plainPreview, %s.schema ?? emptySchema);" . . . . }}
+{{- end }}
+{{- range $editorComponents }}
+  {{- printf "CMS.registerEditorComponent(%s);" . }}
+{{- end }}
