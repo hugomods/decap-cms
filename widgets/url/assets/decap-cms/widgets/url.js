@@ -1,48 +1,49 @@
 export const name = 'url'
 
+// eslint-disable-next-line no-undef
 export const control = createClass({
   handleChange: function (e) {
-    this.props.onChange(e.target.value);
+    this.props.onChange(e.target.value)
   },
 
   render: function () {
-    var value = this.props.value;
+    const value = this.props.value
+    // eslint-disable-next-line no-undef
     return h('input', {
       id: this.props.forID,
       className: this.props.classNameWrapper,
       type: 'url',
       value: value ?? '',
-      onChange: this.handleChange,
-    });
+      onChange: this.handleChange
+    })
   },
 
   isValid: function () {
     try {
-      const url = new URL(this.props.value);
+      const url = new URL(this.props.value)
 
-      const protocols = this.props.field.get('protocols');
+      const protocols = this.props.field.get('protocols')
       if (protocols && !protocols.includes(url.protocol)) {
         return {
           error: {
-            message: "invalid protocol.",
+            message: 'invalid protocol.'
           }
-        };
+        }
       }
 
-      return true;
-    }
-    catch (e) {
+      return true
+    } catch (e) {
       return {
         error: {
-          message: "invalid URL.",
+          message: 'invalid URL.'
         }
-      };
+      }
     }
-  },
-});
+  }
+})
 
 export const schema = {
   properties: {
-    protocols: { type: 'array' },
-  },
+    protocols: { type: 'array' }
+  }
 }
