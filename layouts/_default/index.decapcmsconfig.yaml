@@ -24,4 +24,17 @@
   {{- $locale := partialCached "decap-cms/functions/locale" . }}
   {{- $config.Set "locale" $locale }}
 {{- end }}
+{{/* Transform Logo URL. */}}
+{{- with $config.Get "logo_url" }}
+  {{- $logoURL := urls.Parse . }}
+  {{- if eq $logoURL.Scheme "" }}
+    {{- with resources.Get . }}
+      {{- $config.Set "logo_url" .Permalink }}
+    {{- else }}
+      {{- $config.Set "logo_url" (. | absURL) }}
+    {{- end }}
+  {{- else }}
+    {{- $config.Set "logo_url" . }}
+  {{- end }}
+{{- end }}
 {{- transform.Remarshal "yaml" $config.Values | safeHTML -}}
