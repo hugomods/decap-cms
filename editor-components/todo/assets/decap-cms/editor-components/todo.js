@@ -15,10 +15,6 @@ export default {
   ],
   pattern: /^-\s*\[([\sx])\]\s*(.+?)$/ms,
   fromBlock: function (match) {
-    console.log(match, {
-      done: match[1] === 'x',
-      title: match[2]
-    })
     return {
       done: match[1] === 'x',
       title: match[2]
