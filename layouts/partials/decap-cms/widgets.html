@@ -1,0 +1,8 @@
+{{- $tmpl := resources.GetMatch "decap-cms/widgets/index.js.tmpl" }}
+{{- $js := $tmpl | resources.ExecuteAsTemplate "decap-cms/widgets/index.js" . }}
+{{- $opts := dict
+  "targetPath" "js/decap-cms-widgets.js"
+  "minify" hugo.IsProduction
+}}
+{{- $js = $js | js.Build $opts }}
+<script src="{{ $js.Permalink }}"></script>
