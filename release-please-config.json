@@ -16,8 +16,15 @@
     "packages": {
         ".": {
             "exclude-paths": [
-            ],
-            "separate-pull-requests": true
+                "widgets",
+                "editor-components"
+            ]
+        },
+        "editor-components/todo": {
+            "component": "editor-components/todo"
+        },
+        "widgets/url": {
+            "component": "widgets/url"
         }
     }
 }
