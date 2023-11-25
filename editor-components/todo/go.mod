@@ -1,4 +1,4 @@
-module github.com/decap-cms/editor-components/todo
+module github.com/hugomods/decap-cms/editor-components/todo
 
 go 1.21.3
 

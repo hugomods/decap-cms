@@ -1,4 +1,4 @@
-module github.com/decap-cms/widgets/url
+module github.com/hugomods/decap-cms/widgets/url
 
 go 1.21.3
 
