@@ -1,0 +1,17 @@
+{{- $widgets := slice }}
+{{- range resources.Match "decap-cms/widgets/*.js" }}
+  {{- $name := replace .Name "decap-cms/widgets/" "" }}
+  {{- $name = replaceRE ".js$" "" $name }}
+  {{- $widgetName := upper $name | printf "widget%s" }}
+  {{- printf `import * as %s from "./%s";` $widgetName $name }}
+  {{- $widgets = $widgets | append $widgetName }}
+{{- end }}
+const plainPreview = createClass({
+  render: function() {
+    return this.props.value;
+  }
+});
+const emptySchema = {};
+{{- range $widgets }}
+  {{- printf "CMS.registerWidget(%s.name, %s.control, %s.preview ?? plainPreview, %s.schema ?? emptySchema);" . . . . }}
+{{- end }}
