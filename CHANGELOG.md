@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.0](https://github.com/hugomods/decap-cms/compare/v0.3.0...v0.4.0) (2023-11-25)
+
+
+### Features ✨
+
+* add the head-end hook ([#36](https://github.com/hugomods/decap-cms/issues/36)) ([b652d28](https://github.com/hugomods/decap-cms/commit/b652d28db905b424be8584329a68058bb4ea35b8))
+* implement editor components system ([#38](https://github.com/hugomods/decap-cms/issues/38)) ([7d54cac](https://github.com/hugomods/decap-cms/commit/7d54cacdc7719b0c1c1ed6a76f72377c0ab2723d))
+* implement the widgets system ([#37](https://github.com/hugomods/decap-cms/issues/37)) ([ccba22e](https://github.com/hugomods/decap-cms/commit/ccba22ea6d4139d32cfc89c6464f65be72d2c5af))
+* transform logo_url to able to use site resources ([#35](https://github.com/hugomods/decap-cms/issues/35)) ([db2e206](https://github.com/hugomods/decap-cms/commit/db2e206abb29e10a90b4954f015cc37421e4df76))
+
+
+### Bug Fixes 🐞
+
+* correct typo of publish_mode ([#33](https://github.com/hugomods/decap-cms/issues/33)) ([f92d9ff](https://github.com/hugomods/decap-cms/commit/f92d9ff34f431bdfda9f10284db6af29ee955728))
+
 ## [0.3.0](https://github.com/hugomods/decap-cms/compare/v0.2.0...v0.3.0) (2023-11-22)
 
 
