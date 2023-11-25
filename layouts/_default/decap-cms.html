@@ -8,6 +8,7 @@
     {{- with site.Home.OutputFormats.Get "DecapCMSConfig" }}
       <link href="{{ .RelPermalink }}" type="text/yaml" rel="cms-config-url" />
     {{- end }}
+    {{ partialCached "decap-cms/hooks/head-end" . }}
   </head>
   <body>
     <script src="{{ default `https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js` site.Params.decap_cms.js_url }}"></script>
