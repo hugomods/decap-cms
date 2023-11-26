@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/hugomods/decap-cms/compare/v0.5.0...v0.6.0) (2023-11-26)
+
+
+### Features ✨
+
+* add the preview_styles parameter ([#46](https://github.com/hugomods/decap-cms/issues/46)) ([baf7672](https://github.com/hugomods/decap-cms/commit/baf76725378f54efe86fe0c163b7ecc779bc67eb))
+* allow adding custom preview styles ([#45](https://github.com/hugomods/decap-cms/issues/45)) ([d76286c](https://github.com/hugomods/decap-cms/commit/d76286c5537b907f80d4cbcdce50b15254b44326))
+
 ## [0.5.0](https://github.com/hugomods/decap-cms/compare/v0.4.0...v0.5.0) (2023-11-25)
 
 
