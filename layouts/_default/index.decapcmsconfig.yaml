@@ -37,4 +37,16 @@
     {{- $config.Set "logo_url" . }}
   {{- end }}
 {{- end }}
+{{/* Fill i18n fields if enabled. */}}
+{{- with $config.Get "i18n" }}
+  {{- $i18n := . }}
+  {{- $locales := partialCached "decap-cms/functions/locales" . }}
+  {{- if not .locales }}
+    {{- $i18n = merge $i18n (dict "locales" $locales) }}
+  {{- end }}
+  {{- if not .default_locale }}
+    {{- $i18n = merge $i18n (dict "default_locale" (index $locales 0)) }}
+  {{- end }}
+  {{- $config.Set "i18n" $i18n }}
+{{- end }}
 {{- transform.Remarshal "yaml" $config.Values | safeHTML -}}
