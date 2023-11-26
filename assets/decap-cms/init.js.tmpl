@@ -2,6 +2,9 @@
 {{- $css := resources.Get "decap-cms/scss/index.scss" }}
 {{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
 {{- printf `CMS.registerPreviewStyle("%s");` $css.Permalink }}
+{{- range default slice site.Params.decap_cms.preview_styles }}
+  {{- printf `CMS.registerPreviewStyle("%s");` (absURL .) }}
+{{- end }}
 {{- $widgets := slice }}
 {{- range resources.Match "decap-cms/widgets/*.js" }}
   {{- $name := replace .Name "decap-cms/widgets/" "" }}
