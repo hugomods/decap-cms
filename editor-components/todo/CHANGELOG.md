@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/hugomods/decap-cms/compare/editor-components/todo/v0.1.0...editor-components/todo/v0.1.1) (2023-11-26)
+
+
+### Continuous Integration
+
+* **deps:** update module github.com/hugomods/decap-cms to v0.5.0 ([8f0bd99](https://github.com/hugomods/decap-cms/commit/8f0bd9978157184d65e8d670bf5faf291455f403))
+
 ## [0.1.0](https://github.com/hugomods/decap-cms/compare/editor-components/todo-v0.0.1...editor-components/todo/v0.1.0) (2023-11-25)
 
 
