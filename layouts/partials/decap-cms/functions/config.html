@@ -1,0 +1,104 @@
+{{- $params := .Site.Params.decap_cms -}}
+{{- $config := newScratch -}}
+{{/* Reading settings from configuration. */}}
+{{- $keys := slice
+  "backend" "i18n" "local_backend" "locale" "logo_url" "media_folder"
+  "public_folder" "publish_mode" "search"
+-}}
+{{- range $keys -}}
+  {{- $key := . -}}
+  {{- if isset $params $key -}}
+    {{- $config.Set $key (index $params $key) -}}
+  {{- end -}}
+{{- end -}}
+{{- $configs := default dict (index $params "_configs") -}}
+
+{{/* Transform collections. */}}
+{{- with index $params "collections" -}}
+  {{- range . -}}
+    {{- $collection := . -}}
+    {{- with $collection.fields -}}
+      {{- if reflect.IsSlice . -}}
+        {{- $fields := dict -}}
+        {{- range . -}}
+          {{- $fields = merge $fields (dict .name .) -}}
+        {{- end -}}
+        {{- $collection = merge $collection (dict "fields" $fields) -}}
+      {{- end -}}
+    {{- end -}}
+    {{/* Extends configurations. */}}
+    {{- $extends := slice -}}
+    {{- with index $collection "_extends" -}}
+      {{- range $weight, $extendName := . -}}
+        {{- with index $configs . -}}
+          {{/* Assign the weight to fields for sorting. */}}
+          {{- $extend := . -}}
+          {{- with $extend.fields -}}
+            {{- range $name, $field := . -}}
+              {{- $field = merge $field (dict "weight" (add $weight 1)) -}}
+              {{- $extend = merge $extend (dict "fields" (dict $name $field)) -}}
+            {{- end -}}
+          {{- end -}}
+          {{- $extends = $extends | append $extend -}}
+        {{- else -}}
+          {{- warnf "[decap-cms] no such extendable configuration: %s." . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $extends = $extends | append $collection -}}
+    {{- $collection = partial "decap-cms/functions/deep-merge" $extends -}}
+    {{- $collection.Delete "_extends" -}}
+    {{- with $collection.Get "fields" -}}
+      {{- if reflect.IsMap . -}}
+        {{- $weightFields := slice -}}
+        {{- $unweightFields := slice -}}
+        {{- range $name, $field := . -}}
+          {{- with .weight -}}
+            {{- $weightFields = $weightFields | append $field -}}
+          {{- else -}}
+            {{- $unweightFields = $unweightFields | append $field -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $fields := sort $weightFields "weight" -}}
+        {{- range sort $unweightFields "name" -}}
+          {{- $fields = $fields | append . -}}
+        {{- end }}
+        {{- $collection.Set "fields" $fields -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $config.Add "collections" (slice $collection.Values) -}}
+  {{- end -}}
+{{- end -}}
+{{/* Set the site URL. */}}
+{{- $config.Set "site_url" site.BaseURL -}}
+{{/* Use site language as the locale if not set. */}}
+{{- if not ($config.Get "locale") -}}
+  {{- $locale := partialCached "decap-cms/functions/locale" . -}}
+  {{- $config.Set "locale" $locale -}}
+{{- end -}}
+{{/* Transform Logo URL. */}}
+{{- with $config.Get "logo_url" -}}
+  {{- $logoURL := urls.Parse . -}}
+  {{- if eq $logoURL.Scheme "" -}}
+    {{- with resources.Get . -}}
+      {{- $config.Set "logo_url" .Permalink -}}
+    {{- else -}}
+      {{- $config.Set "logo_url" (. | absURL) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $config.Set "logo_url" . -}}
+  {{- end -}}
+{{- end -}}
+{{/* Fill i18n fields if enabled. */}}
+{{- with $config.Get "i18n" -}}
+  {{- $i18n := . -}}
+  {{- $locales := partialCached "decap-cms/functions/locales" . -}}
+  {{- if not .locales -}}
+    {{- $i18n = merge $i18n (dict "locales" $locales) -}}
+  {{- end -}}
+  {{- if not .default_locale -}}
+    {{- $i18n = merge $i18n (dict "default_locale" (index $locales 0)) -}}
+  {{- end -}}
+  {{- $config.Set "i18n" $i18n -}}
+{{- end -}}
+{{- return $config -}}
