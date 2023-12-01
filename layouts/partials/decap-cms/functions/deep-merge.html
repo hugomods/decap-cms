@@ -1,0 +1,48 @@
+{{- $rst := newScratch }}
+{{/* Walk the collections. */}}
+{{- range . }}
+  {{/* Walk the collection's definitions. */}}
+  {{- range $key, $items := . }}
+    {{- with $rst.Get $key }}
+      {{/* Start deep merging if the key already exists. */}}
+      {{- $values := . }}
+      {{- if reflect.IsSlice $values }}
+        {{/* Start array merging. */}}
+        {{/* Walk the definitions. */}}
+        {{- range $items }}
+          {{- $exist := false }}
+          {{- $item := . }}
+          {{- if not (partial "decap-cms/functions/is-field-definition" $item) }}
+            {{- break }}
+          {{- end }}
+          {{- range $k, $v := $values }}
+            {{- if not (partial "decap-cms/functions/is-field-definition" .) }}
+              {{- break }}
+            {{- end }}
+            {{- if eq $item.name .name }}
+              {{- $exist = true }}
+              {{- $former := first $k $values }}
+              {{- $latter := after (add $k 1) $values }}
+              {{- $values = $former | append $item }}
+              {{- range $latter }}
+                {{- $values = $values | append . }}
+              {{- end }}
+              {{- break }}
+            {{- end }}
+          {{- end }}
+          {{- if not $exist }}
+            {{- $values = $values | append . }}
+          {{- end }}
+        {{- end }}
+        {{- $rst.Set $key $values }}
+      {{- else }}
+        {{/* Start map merging. */}}
+        {{- $rst.Set $key (merge $values $items) }}
+      {{- end }}
+    {{- else }}
+      {{/* Add if it doesn't exist. */}}
+      {{- $rst.Set $key $items }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return $rst }}

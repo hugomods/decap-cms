@@ -1,0 +1,7 @@
+{{- $v := true }}
+{{- if not (reflect.IsMap .) }}
+  {{- $v = false }}
+{{- else if not (isset . "name") }}
+  {{- $v = false }}
+{{- end }}
+{{- return $v }}
