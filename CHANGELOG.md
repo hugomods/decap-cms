@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.0](https://github.com/hugomods/decap-cms/compare/v0.6.0...v0.7.0) (2023-12-01)
+
+
+### Features ✨
+
+* allow extending configurations for collections ([#52](https://github.com/hugomods/decap-cms/issues/52)) ([24be6f5](https://github.com/hugomods/decap-cms/commit/24be6f56c40faa14ec7df4e17e8f4fadb6818fd5))
+* fill i18n fields if enabled ([#49](https://github.com/hugomods/decap-cms/issues/49)) ([e357ef9](https://github.com/hugomods/decap-cms/commit/e357ef90704e58c61f2f6881d600773b59d7f9f4))
+
 ## [0.6.0](https://github.com/hugomods/decap-cms/compare/v0.5.0...v0.6.0) (2023-11-26)
 
 
