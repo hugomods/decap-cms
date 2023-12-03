@@ -2,6 +2,10 @@
 {{- $css := resources.Get "decap-cms/scss/index.scss" }}
 {{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
 {{- printf `CMS.registerPreviewStyle("%s");` $css.Permalink }}
+{{/* TODO: remove preview_styles in future versions. */}}
+{{- if isset site.Params.decap_cms "preview_styles" }}
+  {{- warnf `[decap-cms] the "preview_styles" is deprecated, rename it to "_preview_styles" instead.` }}
+{{- end }}
 {{- range default slice (default site.Params.decap_cms._preview_styles site.Params.decap_cms.preview_styles) }}
   {{- printf `CMS.registerPreviewStyle("%s");` (absURL .) }}
 {{- end }}
