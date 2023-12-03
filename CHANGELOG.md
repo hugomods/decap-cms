@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.8.0](https://github.com/hugomods/decap-cms/compare/v0.7.0...v0.8.0) (2023-12-03)
+
+
+### Features ✨
+
+* add the _preview_templates parameter ([#57](https://github.com/hugomods/decap-cms/issues/57)) ([400a274](https://github.com/hugomods/decap-cms/commit/400a274839fcdfa7d439f38f8aefd972b31feaa0))
+
+
+### Bug Fixes 🐞
+
+* rename the preview_styles to _preview_styles, the former is still valid and will be removed in future versions ([64cba79](https://github.com/hugomods/decap-cms/commit/64cba79ac8a8549572627eb5c0b989cc72d56486))
+
 ## [0.7.0](https://github.com/hugomods/decap-cms/compare/v0.6.0...v0.7.0) (2023-12-01)
 
 
