@@ -5,6 +5,19 @@
 {{- range default slice site.Params.decap_cms.preview_styles }}
   {{- printf `CMS.registerPreviewStyle("%s");` (absURL .) }}
 {{- end }}
+{{/* Imports preview templates. */}}
+{{- $previewTemplates := newScratch }}
+{{- range $i, $pt := default slice site.Params.decap_cms._preview_templates }}
+  {{- if or (not .name) (not .collections) }}
+    {{- errorf "[decap-cms] preview template #%d missing required name or collections." $i }}
+  {{- end }}
+  {{- $name := .name }}
+  {{- $templateName := replaceRE `[-\/]` "_" $name | printf "%s_preview" }}
+  {{- if not ($previewTemplates.Get $templateName) }}
+    {{- printf `import { default as %s } from "./preview-templates/%s";` $templateName $name }}
+  {{- end }}
+  {{- $previewTemplates.Add $templateName .collections }}
+{{- end }}
 {{- $widgets := slice }}
 {{- range resources.Match "decap-cms/widgets/*.js" }}
   {{- $name := replace .Name "decap-cms/widgets/" "" }}
@@ -32,4 +45,10 @@ const emptySchema = {};
 {{- end }}
 {{- range $editorComponents }}
   {{- printf "CMS.registerEditorComponent(%s);" . }}
+{{- end }}
+{{/* Registers preview templates. */}}
+{{- range $name, $collections := $previewTemplates.Values }}
+  {{- range $collections }}
+    {{- printf "CMS.registerPreviewTemplate('%s', %s);" . $name }}
+  {{- end }}
 {{- end }}
