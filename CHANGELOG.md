@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/hugomods/decap-cms/compare/v0.8.0...v0.8.1) (2024-01-13)
+
+
+### Bug Fixes 🐞
+
+* correct fields sorting ([#71](https://github.com/hugomods/decap-cms/issues/71)) ([626c102](https://github.com/hugomods/decap-cms/commit/626c102dbc926e307cf27c137a9f0b1bdf99dffb))
+
 ## [0.8.0](https://github.com/hugomods/decap-cms/compare/v0.7.0...v0.8.0) (2023-12-03)
 
 
