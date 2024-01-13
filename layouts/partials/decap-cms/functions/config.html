@@ -20,8 +20,9 @@
     {{- with $collection.fields -}}
       {{- if reflect.IsSlice . -}}
         {{- $fields := dict -}}
-        {{- range . -}}
-          {{- $fields = merge $fields (dict .name .) -}}
+        {{- range $filedWeight, $field := . -}}
+          {{- $field = merge (dict "_weight" (add $filedWeight 1)) $field }}
+          {{- $fields = merge $fields (dict .name $field) -}}
         {{- end -}}
         {{- $collection = merge $collection (dict "fields" $fields) -}}
       {{- end -}}
@@ -35,7 +36,7 @@
           {{- $extend := . -}}
           {{- with $extend.fields -}}
             {{- range $name, $field := . -}}
-              {{- $field = merge $field (dict "weight" (add $weight 1)) -}}
+              {{- $field = merge $field (dict "_weight" (add $weight 1)) -}}
               {{- $extend = merge $extend (dict "fields" (dict $name $field)) -}}
             {{- end -}}
           {{- end -}}
@@ -53,17 +54,23 @@
         {{- $weightFields := slice -}}
         {{- $unweightFields := slice -}}
         {{- range $name, $field := . -}}
-          {{- with .weight -}}
+          {{- with ._weight -}}
             {{- $weightFields = $weightFields | append $field -}}
           {{- else -}}
             {{- $unweightFields = $unweightFields | append $field -}}
           {{- end -}}
         {{- end -}}
-        {{- $fields := sort $weightFields "weight" -}}
+        {{- $fields := sort $weightFields "_weight" -}}
         {{- range sort $unweightFields "name" -}}
           {{- $fields = $fields | append . -}}
         {{- end }}
-        {{- $collection.Set "fields" $fields -}}
+        {{- $collection.Set "fields" slice -}}
+        {{- range $fields }}
+          {{- $tmp := newScratch }}
+          {{- $tmp.Set "field" . }}
+          {{- $tmp.DeleteInMap "field" "_weight" }}
+          {{- $collection.Add "fields" (slice ($tmp.Get "field")) }}
+        {{- end }}
       {{- end -}}
     {{- end -}}
     {{- $config.Add "collections" (slice $collection.Values) -}}
