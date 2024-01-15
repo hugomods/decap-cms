@@ -1,6 +1,2 @@
-{{- $map := partialCached "decap-cms/functions/locales-map" . }}
 {{- $locale := site.Language.LanguageCode }}
-{{- with index $map $locale }}
-  {{- $locale = . }}
-{{- end }}
 {{- return $locale }}

@@ -1,10 +1,5 @@
-{{- $map := partialCached "decap-cms/functions/locales-map" . }}
 {{- $locales := slice }}
 {{- range site.Languages }}
-  {{- with index $map .LanguageCode }}
-    {{- $locales = $locales | append . }}
-  {{- else }}
-    {{- $locales = $locales | append .LanguageCode }}
-  {{- end }}
+  {{- $locales = $locales | append .LanguageCode }}
 {{- end }}
 {{- return $locales }}
