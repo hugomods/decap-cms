@@ -1,2 +1,12 @@
+{{- $map := dict
+  "zh-cn" "zh_Hans"
+  "zh-hans" "zh_Hans"
+  "zh-hant" "zh_Hant"
+  "zh-hk" "zh_Hant"
+  "zh-tw" "zh_Hant"
+}}
 {{- $locale := site.Language.LanguageCode }}
+{{- with index $map $locale }}
+  {{- $locale = . }}
+{{- end }}
 {{- return $locale }}
