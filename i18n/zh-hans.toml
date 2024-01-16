@@ -1,3 +1,9 @@
+[cms_field_label_alias]
+other = "别名"
+
+[cms_field_label_aliases]
+other = "别名"
+
 [cms_field_label_body]
 other = "正文"
 

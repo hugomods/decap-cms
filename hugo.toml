@@ -18,6 +18,20 @@ public_folder = "/images/uploads"
 search = true
 _preview_styles = []
 
+[params.decap_cms._configs.field_aliases.fields.alias]
+i18n = true
+name = "aliases"
+label = "Aliases"
+required = false
+widget = "list"
+summary = "{{fields.alias}}"
+collapsed = true
+minimize_collapsed = true
+[params.decap_cms._configs.field_aliases.fields.alias.field]
+label = "Alias"
+name = "alias"
+widget = "string"
+
 [params.decap_cms._configs.field_body.fields.body]
 i18n = true
 name = "body"
