@@ -1,0 +1,38 @@
+[cms_field_label_body]
+other = "正文"
+
+[cms_field_label_categories]
+other = "分類"
+
+[cms_field_label_date]
+other = "日期"
+
+[cms_field_label_description]
+other = "描述"
+
+[cms_field_label_draft]
+other = "草稿"
+
+[cms_field_label_images]
+other = "圖片"
+
+[cms_field_label_keywords]
+other = "關鍵詞"
+
+[cms_field_label_layout]
+other = "佈局"
+
+[cms_field_label_series]
+other = "專欄"
+
+[cms_field_label_slug]
+other = "Slug"
+
+[cms_field_label_tags]
+other = "標籤"
+
+[cms_field_label_title]
+other = "標題"
+
+[cms_field_label_type]
+other = "類型"

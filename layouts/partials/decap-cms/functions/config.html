@@ -69,6 +69,8 @@
           {{- $tmp := newScratch }}
           {{- $tmp.Set "field" . }}
           {{- $tmp.DeleteInMap "field" "_weight" }}
+          {{- $label := default .label (printf "cms_field_label_%s" (replace (lower .label) " " "_") | i18n) }}
+          {{- $tmp.SetInMap "field" "label" $label }}
           {{- $collection.Add "fields" (slice ($tmp.Get "field")) }}
         {{- end }}
       {{- end -}}
