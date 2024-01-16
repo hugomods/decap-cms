@@ -1,0 +1,38 @@
+[cms_field_label_body]
+other = "正文"
+
+[cms_field_label_categories]
+other = "分类"
+
+[cms_field_label_date]
+other = "日期"
+
+[cms_field_label_description]
+other = "描述"
+
+[cms_field_label_draft]
+other = "草稿"
+
+[cms_field_label_images]
+other = "图片"
+
+[cms_field_label_keywords]
+other = "关键词"
+
+[cms_field_label_layout]
+other = "布局"
+
+[cms_field_label_series]
+other = "专栏"
+
+[cms_field_label_slug]
+other = "Slug"
+
+[cms_field_label_tags]
+other = "标签"
+
+[cms_field_label_title]
+other = "标题"
+
+[cms_field_label_type]
+other = "类型"
