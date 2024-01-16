@@ -19,11 +19,13 @@ search = true
 _preview_styles = []
 
 [params.decap_cms._configs.field_body.fields.body]
+i18n = true
 name = "body"
 label = "Body"
 widget = "markdown"
 
 [params.decap_cms._configs.field_categories.fields.categories]
+i18n = true
 name = "categories"
 label = "Categories"
 required = false
@@ -37,23 +39,27 @@ name = "category"
 widget = "string"
 
 [params.decap_cms._configs.field_date.fields.date]
+i18n = true
 name = "date"
 label = "Date"
 widget = "datetime"
 picker_utc = true
 
 [params.decap_cms._configs.field_description.fields.description]
+i18n = true
 name = "description"
 label = "Description"
 widget = "text"
 
 [params.decap_cms._configs.field_draft.fields.draft]
+i18n = true
 name = "draft"
 label = "Draft"
 default = true
 widget = "boolean"
 
 [params.decap_cms._configs.field_images.fields.images]
+i18n = "duplicate"
 name = "images"
 label = "Images"
 required = false
@@ -67,6 +73,7 @@ name = "image"
 widget = "image"
 
 [params.decap_cms._configs.field_keywords.fields.keywords]
+i18n = true
 name = "keywords"
 label = "Keywords"
 required = false
@@ -80,12 +87,14 @@ name = "keyword"
 widget = "string"
 
 [params.decap_cms._configs.field_layout.fields.layout]
+i18n = "duplicate"
 name = "layout"
 label = "Layout"
 required = false
 widget = "string"
 
 [params.decap_cms._configs.field_series.fields.series]
+i18n = true
 name = "series"
 label = "Series"
 required = false
@@ -99,12 +108,14 @@ name = "series"
 widget = "string"
 
 [params.decap_cms._configs.field_slug.fields.slug]
+i18n = "duplicate"
 name = "slug"
 label = "Slug"
 required = false
 widget = "string"
 
 [params.decap_cms._configs.field_tags.fields.tags]
+i18n = true
 name = "tags"
 label = "Tags"
 required = false
@@ -118,11 +129,13 @@ name = "tag"
 widget = "string"
 
 [params.decap_cms._configs.field_title.fields.title]
+i18n = true
 name = "title"
 label = "Title"
 widget = "string"
 
 [params.decap_cms._configs.field_type.fields.type]
+i18n = "duplicate"
 name = "type"
 label = "Type"
 required = false
