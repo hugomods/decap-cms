@@ -1,3 +1,9 @@
+[cms_field_label_alias]
+other = "Alias"
+
+[cms_field_label_aliases]
+other = "Aliases"
+
 [cms_field_label_body]
 other = "Body"
 
