@@ -46,6 +46,9 @@ other = "專欄"
 [cms_field_label_slug]
 other = "Slug"
 
+[cms_field_label_summary]
+other = "摘要"
+
 [cms_field_label_tags]
 other = "標籤"
 

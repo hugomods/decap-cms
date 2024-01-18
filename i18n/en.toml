@@ -46,6 +46,9 @@ other = "Series"
 [cms_field_label_slug]
 other = "Slug"
 
+[cms_field_label_summary]
+other = "Summary"
+
 [cms_field_label_tags]
 other = "Tags"
 
