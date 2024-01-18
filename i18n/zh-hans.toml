@@ -31,6 +31,9 @@ other = "关键词"
 [cms_field_label_layout]
 other = "布局"
 
+[cms_field_label_noindex]
+other = "禁止索引"
+
 [cms_field_label_series]
 other = "专栏"
 
