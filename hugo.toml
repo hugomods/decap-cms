@@ -72,6 +72,14 @@ label = "Draft"
 default = true
 widget = "boolean"
 
+[params.decap_cms._configs.field_expiry_date.fields.expiry_date]
+i18n = true
+name = "expiryDate"
+label = "Expiry Date"
+widget = "datetime"
+picker_utc = true
+required = false
+
 [params.decap_cms._configs.field_images.fields.images]
 i18n = "duplicate"
 name = "images"
