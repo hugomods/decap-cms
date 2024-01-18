@@ -79,6 +79,7 @@ label = "Expiry Date"
 widget = "datetime"
 picker_utc = true
 required = false
+default = ""
 
 [params.decap_cms._configs.field_images.fields.images]
 i18n = "duplicate"
