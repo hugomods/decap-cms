@@ -192,3 +192,10 @@ name = "type"
 label = "Type"
 required = false
 widget = "string"
+
+[params.decap_cms._configs.field_weight.fields.weight]
+i18n = true
+name = "weight"
+label = "Weight"
+required = false
+widget = "number"

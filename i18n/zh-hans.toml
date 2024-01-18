@@ -57,3 +57,6 @@ other = "标题"
 
 [cms_field_label_type]
 other = "类型"
+
+[cms_field_label_weight]
+other = "权重"

@@ -57,3 +57,6 @@ other = "Title"
 
 [cms_field_label_type]
 other = "Type"
+
+[cms_field_label_weight]
+other = "Weight"
