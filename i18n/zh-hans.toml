@@ -19,6 +19,9 @@ other = "描述"
 [cms_field_label_draft]
 other = "草稿"
 
+[cms_field_label_expiry_date]
+other = "有效期"
+
 [cms_field_label_images]
 other = "图片"
 

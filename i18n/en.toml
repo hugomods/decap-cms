@@ -19,6 +19,9 @@ other = "Description"
 [cms_field_label_draft]
 other = "Draft"
 
+[cms_field_label_expiry_date]
+other = "Expiry Date"
+
 [cms_field_label_images]
 other = "Images"
 
