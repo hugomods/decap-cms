@@ -28,6 +28,9 @@ other = "Images"
 [cms_field_label_keywords]
 other = "Keywords"
 
+[cms_field_label_lastmod]
+other = "Last Modified"
+
 [cms_field_label_layout]
 other = "Layout"
 

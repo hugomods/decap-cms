@@ -108,6 +108,15 @@ label = "Keyword"
 name = "keyword"
 widget = "string"
 
+[params.decap_cms._configs.field_lastmod.fields.lastmod]
+i18n = true
+name = "lastmod"
+label = "Lastmod"
+widget = "datetime"
+picker_utc = true
+required = false
+default = ""
+
 [params.decap_cms._configs.field_layout.fields.layout]
 i18n = "duplicate"
 name = "layout"

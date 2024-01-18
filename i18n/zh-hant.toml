@@ -28,6 +28,9 @@ other = "圖片"
 [cms_field_label_keywords]
 other = "關鍵詞"
 
+[cms_field_label_lastmod]
+other = "最後修改時間"
+
 [cms_field_label_layout]
 other = "佈局"
 
