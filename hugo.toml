@@ -115,6 +115,13 @@ label = "Layout"
 required = false
 widget = "string"
 
+[params.decap_cms._configs.field_noindex.fields.noindex]
+i18n = true
+name = "noindex"
+label = "Noindex"
+widget = "boolean"
+required = false
+
 [params.decap_cms._configs.field_series.fields.series]
 i18n = true
 name = "series"

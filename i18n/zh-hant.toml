@@ -31,6 +31,9 @@ other = "關鍵詞"
 [cms_field_label_layout]
 other = "佈局"
 
+[cms_field_label_noindex]
+other = "禁止索引"
+
 [cms_field_label_series]
 other = "專欄"
 
