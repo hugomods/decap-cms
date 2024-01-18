@@ -31,6 +31,9 @@ other = "Keywords"
 [cms_field_label_layout]
 other = "Layout"
 
+[cms_field_label_link_title]
+other = "Link Title"
+
 [cms_field_label_noindex]
 other = "Noindex"
 

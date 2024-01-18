@@ -115,6 +115,13 @@ label = "Layout"
 required = false
 widget = "string"
 
+[params.decap_cms._configs.field_link_title.fields.link_title]
+i18n = true
+name = "linkTitle"
+label = "Link Title"
+required = false
+widget = "string"
+
 [params.decap_cms._configs.field_noindex.fields.noindex]
 i18n = true
 name = "noindex"
