@@ -35,8 +35,12 @@
           {{/* Assign the weight to fields for sorting. */}}
           {{- $extend := . -}}
           {{- with $extend.fields -}}
+            {{- $isMap := reflect.IsMap . }}
             {{- range $name, $field := . -}}
               {{- $field = merge $field (dict "_weight" (add $weight 1)) -}}
+              {{- if not $isMap }}
+                {{- $name = $field.name }}
+              {{- end }}
               {{- $extend = merge $extend (dict "fields" (dict $name $field)) -}}
             {{- end -}}
           {{- end -}}
