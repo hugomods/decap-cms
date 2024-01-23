@@ -82,7 +82,7 @@ required = false
 default = ""
 
 [params.decap_cms._configs.field_images.fields.images]
-i18n = "duplicate"
+i18n = true
 name = "images"
 label = "Images"
 required = false
