@@ -1,0 +1,26 @@
+{{- $definitions := .definitions -}}
+{{- $name := .name -}}
+{{- $def := $definitions.Get $name -}}
+{{- $extends := default slice (index $def "_extends") -}}
+{{- if not (reflect.IsSlice $extends) }}
+  {{- errorf "[decap-cms] %q _extends is not an array." $name }}
+{{- end }}
+{{- $merging := slice -}}
+{{- range $extends -}}
+  {{- $parentName := . -}}
+  {{- with $definitions.Get $parentName -}}
+    {{- $parent := . -}}
+    {{/* Handle nested extends. */}}
+    {{- with index $parent "_extends" -}}
+      {{- partial "decap-cms/functions/compute-definition" (dict "definitions" $definitions "name" $parentName) -}}
+    {{- end -}}
+    {{- $merging = $merging | append ($definitions.Get $parentName) -}}
+  {{- else -}}
+    {{- errorf "[decap-cms] no such extensible config: %s" $name -}}
+  {{- end -}}
+{{- end -}}
+{{/* Override with the computed definition. */}}
+{{- with $merging -}}
+  {{- $def = partial "decap-cms/functions/deep-merge" (. | append $def) -}}
+  {{- $definitions.Set $name $def.Values -}}
+{{- end -}}

@@ -37,6 +37,22 @@
         {{- $rst.Set $key $values }}
       {{- else }}
         {{/* Start map merging. */}}
+        {{- if eq $key "fields" }}
+          {{/* Calculate fields weight. */}}
+          {{- $fieldWeight := len $values }}
+          {{- $fields := newScratch }}
+          {{- range $fieldName, $field := $items }}
+            {{- $field = partial "decap-cms/functions/dict2scratch" $field }}
+            {{- if isset $values $fieldName }}
+              {{- $field.Delete "_weight" }}
+            {{- else }}
+              {{- $fieldWeight = add $fieldWeight 1 }}
+              {{- $field.Set "_weight" $fieldWeight }}
+            {{- end }}
+            {{- $fields.Set $fieldName $field.Values }}
+          {{- end }}
+          {{- $items = $fields.Values }}
+        {{- end }}
         {{- $rst.Set $key (merge $values $items) }}
       {{- end }}
     {{- else }}

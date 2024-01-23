@@ -11,12 +11,10 @@
     {{- $config.Set $key (index $params $key) -}}
   {{- end -}}
 {{- end -}}
-{{- $configs := default dict (index $params "_configs") -}}
-
+{{- $definitions := partial "decap-cms/functions/definitions" (default dict (index $params "_configs")) }}
 {{/* Transform collections. */}}
 {{- with index $params "collections" -}}
-  {{- range . -}}
-    {{- $collection := . -}}
+  {{- range $collectionName, $collection := . -}}
     {{- with $collection.fields -}}
       {{- if reflect.IsSlice . -}}
         {{- $fields := dict -}}
@@ -30,23 +28,20 @@
     {{/* Extends configurations. */}}
     {{- $extends := slice -}}
     {{- with index $collection "_extends" -}}
+      {{- if not (reflect.IsSlice .) }}
+        {{- errorf "[decap-cms] %q _extends is not an array." $collectionName }}
+      {{- end }}
       {{- range $weight, $extendName := . -}}
-        {{- with index $configs . -}}
+        {{- with index $definitions . -}}
           {{/* Assign the weight to fields for sorting. */}}
           {{- $extend := . -}}
           {{- with $extend.fields -}}
-            {{- $isMap := reflect.IsMap . }}
-            {{- range $name, $field := . -}}
-              {{- $field = merge $field (dict "_weight" (add $weight 1)) -}}
-              {{- if not $isMap }}
-                {{- $name = $field.name }}
-              {{- end }}
-              {{- $extend = merge $extend (dict "fields" (dict $name $field)) -}}
-            {{- end -}}
+            {{- $fields := partial "decap-cms/functions/format-fields" . -}}
+            {{- $extend = merge $extend (dict "fields" $fields) -}}
           {{- end -}}
           {{- $extends = $extends | append $extend -}}
         {{- else -}}
-          {{- warnf "[decap-cms] no such extendable configuration: %s." . -}}
+          {{- errorf "[decap-cms] no such extendable configuration: %s." . -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

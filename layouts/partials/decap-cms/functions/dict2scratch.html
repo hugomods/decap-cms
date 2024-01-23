@@ -1,5 +1,5 @@
 {{- $scratch := newScratch }}
-{{- range $key, $val := index . 0 }}
+{{- range $key, $val := . }}
   {{- $scratch.Set $key $val }}
 {{- end }}
 {{- return $scratch }}

@@ -1,0 +1,13 @@
+{{- $definitions := newScratch -}}
+{{/* Convert definitions from map to scratch. */}}
+{{- range $name, $def := . -}}
+  {{- with $def.fields -}}
+    {{- $fields := partial "decap-cms/functions/format-fields" . -}}
+    {{- $def = merge $def (dict "fields" $fields) -}}
+  {{- end -}}
+  {{- $definitions.Set $name $def -}}
+{{- end -}}
+{{- range $name, $def := . -}}
+  {{- partial "decap-cms/functions/compute-definition" (dict "definitions" $definitions "name" $name) -}}
+{{- end -}}
+{{- return $definitions.Values -}}
