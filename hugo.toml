@@ -204,3 +204,6 @@ widget = "number"
 widget = "string"
 label = "Path"
 index_file = "index"
+
+[params.decap_cms._configs.nested.nested]
+depth = 5
