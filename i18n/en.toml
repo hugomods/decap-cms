@@ -49,6 +49,9 @@ other = "Link Title"
 [cms_field_label_noindex]
 other = "Noindex"
 
+[cms_field_label_path]
+other = "Path"
+
 [cms_field_label_series]
 other = "Series"
 

@@ -49,6 +49,9 @@ other = "鏈接標題"
 [cms_field_label_noindex]
 other = "禁止索引"
 
+[cms_field_label_path]
+other = "路徑"
+
 [cms_field_label_series]
 other = "專欄"
 

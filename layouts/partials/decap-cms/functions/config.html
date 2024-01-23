@@ -63,6 +63,14 @@
         {{- range sort $unweightFields "name" -}}
           {{- $fields = $fields | append . -}}
         {{- end }}
+        {{- with $collection.Get "meta" }}
+          {{- $meta := . }}
+          {{- with index . "path" }}
+            {{- $pathLabel := partial "decap-cms/functions/translate-label" .label }}
+            {{- $meta = merge $meta (dict "path" (merge . (dict "label" $pathLabel))) }}
+            {{- $collection.Set "meta" $meta }}
+          {{- end }}
+        {{- end }}
         {{- $collection.Set "fields" slice -}}
         {{- range $fields }}
           {{- $tmp := newScratch }}
