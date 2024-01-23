@@ -1,0 +1,17 @@
+{{/* Format fields to add _weight and convert it to map if it's an array. */}}
+{{- $fields := newScratch -}}
+{{- with . -}}
+  {{- $isMap := reflect.IsMap . -}}
+  {{- $weight := 0 -}}
+  {{- range $name, $field := . -}}
+    {{- if isset $field "_weight" }}
+      {{- continue }}
+    {{- end }}
+    {{- $field = merge $field (dict "_weight" (add $weight 1)) -}}
+    {{- if not $isMap -}}
+      {{- $name = $field.name -}}
+    {{- end -}}
+    {{- $fields.Set $name $field -}}
+  {{- end -}}
+{{- end -}}
+{{- return $fields.Values -}}
