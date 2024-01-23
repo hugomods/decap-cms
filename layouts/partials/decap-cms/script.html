@@ -1,0 +1,10 @@
+{{- with site.Params.decap_cms.js_url }}
+  <script src="{{ . }}"></script>
+{{- else }}
+  {{- $js := resources.Get "decap-cms/index.js" }}
+  {{- $js = slice $js | resources.Concat "js/decap-cms.js" }}
+  {{- if hugo.IsProduction }}
+    {{- $js = $js | fingerprint }}
+  {{- end }}
+  <script src="{{ $js.RelPermalink }}"></script>
+{{- end }}

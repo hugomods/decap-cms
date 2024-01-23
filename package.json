@@ -12,16 +12,26 @@
   "homepage": "https://github.com/hugomods/decap-cms",
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
+    "copy-webpack-plugin": "^12.0.2",
+    "decap-cms": "^3.1.0-beta.4",
     "prettier": "^3.0.0",
     "prettier-plugin-go-template": "^0.0.15",
     "stylelint": "^16.0.0",
     "stylelint-config-standard-scss": "^13.0.0",
     "stylelint-scss": "^6.0.0",
-    "ts-standard": "^12.0.2"
+    "ts-standard": "^12.0.2",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
+    "build": "webpack",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "ts-standard",
     "stylelint": "npx stylelint \"**/*.scss\""
+  },
+  "ts-standard": {
+    "ignore": [
+      "assets/decap-cms/index.js",
+      "webpack.config.js"
+    ]
   }
 }
