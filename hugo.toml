@@ -199,3 +199,8 @@ name = "weight"
 label = "Weight"
 required = false
 widget = "number"
+
+[params.decap_cms._configs.meta_path.meta.path]
+widget = "string"
+label = "Path"
+index_file = "index"
