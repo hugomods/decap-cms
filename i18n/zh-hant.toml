@@ -10,6 +10,9 @@ other = "正文"
 [cms_field_label_categories]
 other = "分類"
 
+[cms_field_label_category]
+other = "分類"
+
 [cms_field_label_date]
 other = "日期"
 
@@ -22,8 +25,14 @@ other = "草稿"
 [cms_field_label_expiry_date]
 other = "有效期"
 
+[cms_field_label_image]
+other = "圖片"
+
 [cms_field_label_images]
 other = "圖片"
+
+[cms_field_label_keyword]
+other = "關鍵詞"
 
 [cms_field_label_keywords]
 other = "關鍵詞"
@@ -48,6 +57,9 @@ other = "Slug"
 
 [cms_field_label_summary]
 other = "摘要"
+
+[cms_field_label_tag]
+other = "標籤"
 
 [cms_field_label_tags]
 other = "標籤"
