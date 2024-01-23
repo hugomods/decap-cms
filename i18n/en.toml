@@ -10,6 +10,9 @@ other = "Body"
 [cms_field_label_categories]
 other = "Categories"
 
+[cms_field_label_category]
+other = "Category"
+
 [cms_field_label_date]
 other = "Date"
 
@@ -22,8 +25,14 @@ other = "Draft"
 [cms_field_label_expiry_date]
 other = "Expiry Date"
 
+[cms_field_label_image]
+other = "Image"
+
 [cms_field_label_images]
 other = "Images"
+
+[cms_field_label_keyword]
+other = "Keyword"
 
 [cms_field_label_keywords]
 other = "Keywords"
@@ -48,6 +57,9 @@ other = "Slug"
 
 [cms_field_label_summary]
 other = "Summary"
+
+[cms_field_label_tag]
+other = "Tag"
 
 [cms_field_label_tags]
 other = "Tags"

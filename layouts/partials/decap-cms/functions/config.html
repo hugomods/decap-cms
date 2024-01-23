@@ -68,8 +68,21 @@
           {{- $tmp := newScratch }}
           {{- $tmp.Set "field" . }}
           {{- $tmp.DeleteInMap "field" "_weight" }}
-          {{- $label := default .label (printf "cms_field_label_%s" (replace (lower .label) " " "_") | i18n) }}
+          {{- $label := partial "decap-cms/functions/translate-label" .label }}
           {{- $tmp.SetInMap "field" "label" $label }}
+          {{- with index . "field" }}
+            {{- $childLabel := partial "decap-cms/functions/translate-label" .label }}
+            {{- $tmp.SetInMap "field" "field" (merge . (dict "label" $childLabel)) }}
+          {{- end }}
+          {{- with index . "fields" }}
+            {{- $children := slice }}
+            {{- range . }}
+              {{- $childLabel := partial "decap-cms/functions/translate-label" .label }}
+              {{- $child := . }}
+              {{- $children = $children | append (merge . (dict "label" $childLabel)) }}
+            {{- end }}
+            {{- $tmp.SetInMap "field" "fields" $children }}
+          {{- end }}
           {{- $collection.Add "fields" (slice ($tmp.Get "field")) }}
         {{- end }}
       {{- end -}}
