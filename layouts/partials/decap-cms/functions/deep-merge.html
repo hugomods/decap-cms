@@ -6,7 +6,7 @@
     {{- with $rst.Get $key }}
       {{/* Start deep merging if the key already exists. */}}
       {{- $values := . }}
-      {{- if reflect.IsSlice $values }}
+      {{- if reflect.IsSlice $items }}
         {{/* Start array merging. */}}
         {{/* Walk the definitions. */}}
         {{- range $items }}
@@ -35,25 +35,33 @@
           {{- end }}
         {{- end }}
         {{- $rst.Set $key $values }}
-      {{- else }}
+      {{- else if reflect.IsMap $items }}
         {{/* Start map merging. */}}
         {{- if eq $key "fields" }}
           {{/* Calculate fields weight. */}}
           {{- $fieldWeight := len $values }}
           {{- $fields := newScratch }}
-          {{- range $fieldName, $field := $items }}
-            {{- $field = partial "decap-cms/functions/dict2scratch" $field }}
+          {{- range sort $items "_weight" }}
+            {{- $fieldName := .name }}
+            {{- $field := partial "decap-cms/functions/dict2scratch" . }}
             {{- if isset $values $fieldName }}
               {{- $field.Delete "_weight" }}
             {{- else }}
               {{- $fieldWeight = add $fieldWeight 1 }}
               {{- $field.Set "_weight" $fieldWeight }}
             {{- end }}
-            {{- $fields.Set $fieldName $field.Values }}
+            {{- $tmp := dict }}
+            {{- range $k, $v := $field.Values }}
+              {{- $tmp = merge $tmp (dict $k $v) }}
+            {{- end }}
+            {{- $fields.Set $fieldName $tmp }}
           {{- end }}
           {{- $items = $fields.Values }}
         {{- end }}
         {{- $rst.Set $key (merge $values $items) }}
+      {{- else }}
+        {{/* Just replace the previous values if it's any other type. */}}
+        {{- $rst.Set $key $items }}
       {{- end }}
     {{- else }}
       {{/* Add if it doesn't exist. */}}

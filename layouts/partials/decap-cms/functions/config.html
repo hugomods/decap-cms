@@ -63,41 +63,13 @@
         {{- range sort $unweightFields "name" -}}
           {{- $fields = $fields | append . -}}
         {{- end }}
-        {{- with $collection.Get "meta" }}
-          {{- $meta := . }}
-          {{- with index . "path" }}
-            {{- $pathLabel := partial "decap-cms/functions/translate-label" .label }}
-            {{- $meta = merge $meta (dict "path" (merge . (dict "label" $pathLabel))) }}
-            {{- $collection.Set "meta" $meta }}
-          {{- end }}
-        {{- end }}
-        {{- $collection.Set "fields" slice -}}
-        {{- range $fields }}
-          {{- $tmp := newScratch }}
-          {{- $tmp.Set "field" . }}
-          {{- $tmp.DeleteInMap "field" "_weight" }}
-          {{- $label := partial "decap-cms/functions/translate-label" .label }}
-          {{- $tmp.SetInMap "field" "label" $label }}
-          {{- with index . "field" }}
-            {{- $childLabel := partial "decap-cms/functions/translate-label" .label }}
-            {{- $tmp.SetInMap "field" "field" (merge . (dict "label" $childLabel)) }}
-          {{- end }}
-          {{- with index . "fields" }}
-            {{- $children := slice }}
-            {{- range . }}
-              {{- $childLabel := partial "decap-cms/functions/translate-label" .label }}
-              {{- $child := . }}
-              {{- $children = $children | append (merge . (dict "label" $childLabel)) }}
-            {{- end }}
-            {{- $tmp.SetInMap "field" "fields" $children }}
-          {{- end }}
-          {{- $collection.Add "fields" (slice ($tmp.Get "field")) }}
-        {{- end }}
+        {{- $collection.Set "fields" $fields -}}
       {{- end -}}
     {{- end -}}
     {{- $config.Add "collections" (slice $collection.Values) -}}
   {{- end -}}
 {{- end -}}
+{{- partial "decap-cms/functions/format" $config }}
 {{/* Set the site URL. */}}
 {{- $config.Set "site_url" site.BaseURL -}}
 {{/* Use site language as the locale if not set. */}}

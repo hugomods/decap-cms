@@ -1,0 +1,51 @@
+{{/* Format the configurations:
+  1. Remove internal used parameters.
+  2. Trasnlate labels.
+*/}}
+{{- $config := . }}
+{{- $collections := default slice ($config.Get "collections") }}
+{{- $config.Set "collections" slice }}
+{{- range $collections }}
+  {{- $tmp := newScratch }}
+  {{- $tmp.Set "c" . }}
+  {{- range $name, $value := . }}
+    {{- if hasPrefix $name "_" }}
+      {{- $tmp.DeleteInMap "c" $name }}
+    {{- else if eq $name "meta" }}
+      {{- $meta := $value }}
+      {{- with index $meta "path" }}
+        {{- $pathLabel := partial "decap-cms/functions/translate-label" .label }}
+        {{- $meta = merge $meta (dict "path" (merge . (dict "label" $pathLabel))) }}
+        {{- $tmp.SetInMap "c" "meta" $meta }}
+      {{- end }}
+    {{- else if eq $name "fields" }}
+      {{- $fields := slice }}
+      {{- range $field := $value }}
+        {{- $tmp2 := newScratch }}
+        {{- $tmp2.Set "f" . }}
+        {{- range $fName, $fValue := . }}
+          {{- if hasPrefix $fName "_" }}
+            {{- $tmp2.DeleteInMap "f" $fName }}
+          {{- else if eq $fName "label" }}
+            {{- $label := partial "decap-cms/functions/translate-label" $fValue }}
+            {{- $tmp2.SetInMap "f" "label" $label }}
+          {{- else if eq $fName "field" }}
+            {{- $childLabel := partial "decap-cms/functions/translate-label" $fValue.label }}
+            {{- $tmp2.SetInMap "f" "field" (merge $fValue (dict "label" $childLabel)) }}
+          {{- else if eq $fName "fields" }}
+            {{- $children := slice }}
+            {{- range $fValue }}
+              {{- $childLabel := partial "decap-cms/functions/translate-label" .label }}
+              {{- $child := . }}
+              {{- $children = $children | append (merge . (dict "label" $childLabel)) }}
+            {{- end }}
+            {{- $tmp2.SetInMap "f" "fields" $children }}
+          {{- end }}
+        {{- end }}
+        {{- $fields = $fields | append ($tmp2.Get "f") }}
+      {{- end }}
+      {{- $tmp.SetInMap "c" "fields" $fields }}
+    {{- end }}
+  {{- end }}
+  {{- $config.Add "collections" (slice ($tmp.Get "c")) }}
+{{- end }}
