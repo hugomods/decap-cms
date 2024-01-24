@@ -15,10 +15,13 @@
   {{- range $name, $value := . }}
     {{- if hasPrefix $name "_" }}
       {{- $tmp.DeleteInMap "c" $name }}
+    {{- else if in (slice "label" "label_singular") $name }}
+      {{- $label := partial "decap-cms/functions/translate-label" $value }}
+      {{- $tmp.SetInMap "c" $name $label }}
     {{- else if eq $name "meta" }}
       {{- $meta := $value }}
       {{- with index $meta "path" }}
-        {{- $pathLabel := partial "decap-cms/functions/translate-label" .label }}
+        {{- $pathLabel := partial "decap-cms/functions/translate-field-label" .label }}
         {{- $meta = merge $meta (dict "path" (merge . (dict "label" $pathLabel))) }}
         {{- $tmp.SetInMap "c" "meta" $meta }}
       {{- end }}
@@ -31,15 +34,15 @@
           {{- if hasPrefix $fName "_" }}
             {{- $tmp2.DeleteInMap "f" $fName }}
           {{- else if eq $fName "label" }}
-            {{- $label := partial "decap-cms/functions/translate-label" $fValue }}
+            {{- $label := partial "decap-cms/functions/translate-field-label" $fValue }}
             {{- $tmp2.SetInMap "f" "label" $label }}
           {{- else if eq $fName "field" }}
-            {{- $childLabel := partial "decap-cms/functions/translate-label" $fValue.label }}
+            {{- $childLabel := partial "decap-cms/functions/translate-field-label" $fValue.label }}
             {{- $tmp2.SetInMap "f" "field" (merge $fValue (dict "label" $childLabel)) }}
           {{- else if eq $fName "fields" }}
             {{- $children := slice }}
             {{- range $fValue }}
-              {{- $childLabel := partial "decap-cms/functions/translate-label" .label }}
+              {{- $childLabel := partial "decap-cms/functions/translate-field-label" .label }}
               {{- $child := . }}
               {{- $children = $children | append (merge . (dict "label" $childLabel)) }}
             {{- end }}
