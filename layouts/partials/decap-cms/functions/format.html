@@ -1,9 +1,13 @@
 {{/* Format the configurations:
   1. Remove internal used parameters.
   2. Trasnlate labels.
+  3. Sort collections.
 */}}
 {{- $config := . }}
 {{- $collections := default slice ($config.Get "collections") }}
+{{- $sortedCollections := sort (default slice (where $collections "_weight" "ne" nil)) "_weight" }}
+{{- $unsortedCollections := sort (default slice (where $collections "_weight" nil)) "name" }}
+{{- $collections = $sortedCollections | append $unsortedCollections }}
 {{- $config.Set "collections" slice }}
 {{- range $collections }}
   {{- $tmp := newScratch }}
@@ -49,3 +53,4 @@
   {{- end }}
   {{- $config.Add "collections" (slice ($tmp.Get "c")) }}
 {{- end }}
+{{- $config.Set "collections" $collections }}
