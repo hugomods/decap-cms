@@ -1,5 +1,41 @@
 # Changelog
 
+## [0.9.0](https://github.com/hugomods/decap-cms/compare/v0.8.1...v0.9.0) (2024-01-24)
+
+
+### Features ✨
+
+* add the `nested` extensible configurations ([85a55a1](https://github.com/hugomods/decap-cms/commit/85a55a1428e050b208a7d429e826f5b6760ea285))
+* add the aliases field ([#82](https://github.com/hugomods/decap-cms/issues/82)) ([3c5af67](https://github.com/hugomods/decap-cms/commit/3c5af6799fbf4eb4e108e3b184c642589398484a))
+* add the collection _weight parameter for sorting ([#98](https://github.com/hugomods/decap-cms/issues/98)) ([7db2bd1](https://github.com/hugomods/decap-cms/commit/7db2bd1c4ab6956cebf717800dbbf564085d661e))
+* add the expiry date field ([#86](https://github.com/hugomods/decap-cms/issues/86)) ([3197a60](https://github.com/hugomods/decap-cms/commit/3197a60a58edc7796560e76301088296d96a9c3d))
+* add the lastmod field ([188406f](https://github.com/hugomods/decap-cms/commit/188406fd741a61bfdc99c5aebc50a6043e44a1fe))
+* add the linkTitle field ([feb7816](https://github.com/hugomods/decap-cms/commit/feb781699d814fa732d14bcaec0aaa5f5c88fff2))
+* add the meta_path extensible configuration ([a673561](https://github.com/hugomods/decap-cms/commit/a673561dbf075436e4615558d70ca957148fb920))
+* add the noindex field ([#87](https://github.com/hugomods/decap-cms/issues/87)) ([41ec978](https://github.com/hugomods/decap-cms/commit/41ec978bc3c9b586530ba950d1632207ee916e61))
+* add the summary field ([255cba9](https://github.com/hugomods/decap-cms/commit/255cba96d2ddaf179aaa8bb4cfc6390ab949e73f))
+* add the weight field ([afc0a00](https://github.com/hugomods/decap-cms/commit/afc0a0074e99efe0983e8c938fdbbf4048a58bdc))
+* allow configurations nested extending ([#93](https://github.com/hugomods/decap-cms/issues/93)) ([cdc00c9](https://github.com/hugomods/decap-cms/commit/cdc00c9744dd4b86bdd8a246e5cd1e851611add6))
+* local JS script is prefered, unless the decap_cms.js_url is specified ([#94](https://github.com/hugomods/decap-cms/issues/94)) ([3d37461](https://github.com/hugomods/decap-cms/commit/3d374618cea464814db7e5331256f1af66ef3637))
+* translate collection labels ([#99](https://github.com/hugomods/decap-cms/issues/99)) ([5ff085d](https://github.com/hugomods/decap-cms/commit/5ff085dbe242dfaa0831fdde4043de2960072a1d))
+* translate field labels via Hugo i18n ([#81](https://github.com/hugomods/decap-cms/issues/81)) ([fdb68d6](https://github.com/hugomods/decap-cms/commit/fdb68d6d4385f83aa7e2e70cf05245f76412736b))
+
+
+### Bug Fixes 🐞
+
+* correct extended configuration merging when fields are in type array ([7c87ebc](https://github.com/hugomods/decap-cms/commit/7c87ebc05f7f625ae67b2c34fc8c9642729bc467))
+* correct fields weight for sorting ([d2a0a1c](https://github.com/hugomods/decap-cms/commit/d2a0a1c5a0929eddbdf83932fab7a37d34027c47))
+* correct the i18n for images field ([554467f](https://github.com/hugomods/decap-cms/commit/554467ff023e6ad6896747ef160c175326c96db0))
+* correct the UI locale for Chinese ([#77](https://github.com/hugomods/decap-cms/issues/77)) ([7a8363a](https://github.com/hugomods/decap-cms/commit/7a8363a1edc00e4c65b97bb9df98e762bd331e3d))
+* **i18n:** translate the meta.path.label ([96d1bbf](https://github.com/hugomods/decap-cms/commit/96d1bbfe4b081f4bd11ab66845a9319d3948b5df))
+* override extensible configuration parameters ([#97](https://github.com/hugomods/decap-cms/issues/97)) ([d2a0a1c](https://github.com/hugomods/decap-cms/commit/d2a0a1c5a0929eddbdf83932fab7a37d34027c47))
+* set default i18n attribute for fields ([#78](https://github.com/hugomods/decap-cms/issues/78)) ([c8a5cc2](https://github.com/hugomods/decap-cms/commit/c8a5cc2082436f572b7c410494aa3ac9304e0aff))
+* set expiryDate field default vaule as empty ([8998c69](https://github.com/hugomods/decap-cms/commit/8998c69143ace22ac9c7f53a71f00292fa92238b))
+* translate subfields label ([#95](https://github.com/hugomods/decap-cms/issues/95)) ([27349b2](https://github.com/hugomods/decap-cms/commit/27349b2cf1fbdc51cae8528ccdfe5220c472e7c0))
+* update LICENSE ([8f948df](https://github.com/hugomods/decap-cms/commit/8f948df4eb9c6da9cf9eb1452a5e0c315edb39cc))
+* use current site language as the default i18n.default_locale ([#100](https://github.com/hugomods/decap-cms/issues/100)) ([a3e0c06](https://github.com/hugomods/decap-cms/commit/a3e0c06cc609768a9380e5f220845d38202950f6))
+* use language codes as locales as is ([#75](https://github.com/hugomods/decap-cms/issues/75)) ([272c9a2](https://github.com/hugomods/decap-cms/commit/272c9a2dcd7bed9fb73d5ef033b75adb7387fc55))
+
 ## [0.8.1](https://github.com/hugomods/decap-cms/compare/v0.8.0...v0.8.1) (2024-01-13)
 
 
