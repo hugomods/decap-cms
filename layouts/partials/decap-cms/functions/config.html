@@ -98,7 +98,7 @@
     {{- $i18n = merge $i18n (dict "locales" $locales) -}}
   {{- end -}}
   {{- if not .default_locale -}}
-    {{- $i18n = merge $i18n (dict "default_locale" (index $locales 0)) -}}
+    {{- $i18n = merge $i18n (dict "default_locale" site.Language.LanguageCode) -}}
   {{- end -}}
   {{- $config.Set "i18n" $i18n -}}
 {{- end -}}
