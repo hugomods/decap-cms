@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0](https://github.com/hugomods/decap-cms/compare/v0.9.0...v0.10.0) (2024-01-25)
+
+
+### Features ✨
+
+* allow loading module scoped preview styles ([#105](https://github.com/hugomods/decap-cms/issues/105)) ([787a391](https://github.com/hugomods/decap-cms/commit/787a391447fcb15a570d05fd9aa38c8d9ad0487e))
+* allow specifying partials that return a preview style resource ([#103](https://github.com/hugomods/decap-cms/issues/103)) ([da682bf](https://github.com/hugomods/decap-cms/commit/da682bf919b2ced335e7bcb879dd21a690c80950))
+
 ## [0.9.0](https://github.com/hugomods/decap-cms/compare/v0.8.1...v0.9.0) (2024-01-24)
 
 
