@@ -18,6 +18,8 @@ public_folder = "/images/uploads"
 search = true
 _preview_styles = []
 
+[params.decap_cms._preview_style_partials]
+
 [params.decap_cms._configs.field_aliases.fields.alias]
 i18n = true
 name = "aliases"

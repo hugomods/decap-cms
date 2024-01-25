@@ -1,6 +1,17 @@
+{{- $ctx := . }}
 {{/* Register preview styles. */}}
 {{- $css := resources.Get "decap-cms/scss/index.scss" }}
 {{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
+{{- range $name, $partial := default slice site.Params.decap_cms._preview_style_partials }}
+  {{- if not $partial.path }}
+    {{- errorf "[decap-cms] preview style partial %q's %q is required." $name "path" }}
+  {{- else if not (printf "partials/%s.html" $partial.path | templates.Exists) }}
+    {{- errorf "[decap-cms] preview style partial %q does not exist: partials/%s.html." $name $partial.path }}
+  {{- else }}
+    {{- $css = slice $css | append (partial $partial.path $ctx) }}
+  {{- end }}
+{{- end }}
+{{- $css = $css | resources.Concat "css/decap-cms.css" | fingerprint }}
 {{- printf `CMS.registerPreviewStyle("%s");` $css.Permalink }}
 {{/* TODO: remove preview_styles in future versions. */}}
 {{- if isset site.Params.decap_cms "preview_styles" }}
