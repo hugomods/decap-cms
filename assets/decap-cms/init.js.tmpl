@@ -1,6 +1,6 @@
 {{- $ctx := . }}
 {{/* Register preview styles. */}}
-{{- $css := resources.Get "decap-cms/scss/index.scss" }}
+{{- $css := resources.Get "decap-cms/scss/index.scss.tmpl" | resources.ExecuteAsTemplate "decap-cms/scss/index.scss" $ctx }}
 {{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
 {{- range $name, $partial := default slice site.Params.decap_cms._preview_style_partials }}
   {{- if not $partial.path }}
