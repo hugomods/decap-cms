@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/hugomods/decap-cms/compare/v0.10.1...v0.11.0) (2024-01-26)
+
+
+### Features ✨
+
+* add the authors field ([#111](https://github.com/hugomods/decap-cms/issues/111)) ([df4739e](https://github.com/hugomods/decap-cms/commit/df4739efb0dc1ab52475c50a7d2383cbec8c73cb))
+
 ## [0.10.1](https://github.com/hugomods/decap-cms/compare/v0.10.0...v0.10.1) (2024-01-26)
 
 
