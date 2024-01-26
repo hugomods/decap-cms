@@ -4,6 +4,12 @@ other = "Alias"
 [cms_field_label_aliases]
 other = "Aliases"
 
+[cms_field_label_author]
+other = "Author"
+
+[cms_field_label_authors]
+other = "Authors"
+
 [cms_field_label_body]
 other = "Body"
 
