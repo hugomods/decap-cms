@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/hugomods/decap-cms/compare/v0.10.0...v0.10.1) (2024-01-26)
+
+
+### Bug Fixes 🐞
+
+* build without any module scoped preview styles ([#108](https://github.com/hugomods/decap-cms/issues/108)) ([ada28f6](https://github.com/hugomods/decap-cms/commit/ada28f68009f975402e661349ec2d03002b14dd3))
+
 ## [0.10.0](https://github.com/hugomods/decap-cms/compare/v0.9.0...v0.10.0) (2024-01-25)
 
 
