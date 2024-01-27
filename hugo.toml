@@ -10,7 +10,7 @@ notAlternative = true
 mediaType = "application/yaml"
 
 [params.decap_cms]
-js_url = ""
+_js_url = ""
 # local_backend = false
 publish_mode = "editorial_workflow"
 media_folder = "static/images/uploads"
