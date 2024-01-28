@@ -1,18 +1,19 @@
 {{- $ctx := . }}
 {{/* Register preview styles. */}}
-{{- $css := resources.Get "decap-cms/scss/index.scss.tmpl" | resources.ExecuteAsTemplate "decap-cms/scss/index.scss" $ctx }}
-{{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
-{{- $css = slice $css }}
 {{- range $name, $partial := default slice site.Params.decap_cms._preview_style_partials }}
   {{- if not $partial.path }}
     {{- errorf "[decap-cms] preview style partial %q's %q is required." $name "path" }}
   {{- else if not (printf "partials/%s.html" $partial.path | templates.Exists) }}
     {{- errorf "[decap-cms] preview style partial %q does not exist: partials/%s.html." $name $partial.path }}
   {{- else }}
-    {{- $css = $css | append (partial $partial.path $ctx) }}
+    {{- with partial $partial.path $ctx }}
+      {{- printf `CMS.registerPreviewStyle("%s");` .Permalink }}
+    {{- end }}
   {{- end }}
 {{- end }}
-{{- $css = $css | resources.Concat "css/decap-cms.css" | fingerprint }}
+{{- $css := resources.Get "decap-cms/scss/index.scss.tmpl" | resources.ExecuteAsTemplate "decap-cms/scss/index.scss" $ctx }}
+{{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
+{{- $css = $css | fingerprint }}
 {{- printf `CMS.registerPreviewStyle("%s");` $css.Permalink }}
 {{/* TODO: remove preview_styles in future versions. */}}
 {{- if isset site.Params.decap_cms "preview_styles" }}
