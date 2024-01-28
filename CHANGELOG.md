@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.11.1](https://github.com/hugomods/decap-cms/compare/v0.11.0...v0.11.1) (2024-01-28)
+
+
+### Bug Fixes 🐞
+
+* do not concat preview style resources ([#120](https://github.com/hugomods/decap-cms/issues/120)) ([a0251ea](https://github.com/hugomods/decap-cms/commit/a0251eaa50388b9f07734d2214c7cae7f4224cba))
+* rename js_url with _js_url ([#116](https://github.com/hugomods/decap-cms/issues/116)) ([443b829](https://github.com/hugomods/decap-cms/commit/443b829d6321da531cf938f4161f1d038d3bec73))
+
 ## [0.11.0](https://github.com/hugomods/decap-cms/compare/v0.10.1...v0.11.0) (2024-01-26)
 
 
