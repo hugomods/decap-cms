@@ -13,7 +13,7 @@
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
     "copy-webpack-plugin": "^12.0.2",
-    "decap-cms": "^3.1.0-beta.4",
+    "decap-cms": "^3.1.1",
     "prettier": "^3.0.0",
     "prettier-plugin-go-template": "^0.0.15",
     "stylelint": "^16.0.0",
