@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/hugomods/decap-cms/compare/v0.11.2...v0.12.0) (2024-02-03)
+
+
+### Features ✨
+
+* add the strings widget, and apply it on authors, categories, keywords, series and tags fields ([#133](https://github.com/hugomods/decap-cms/issues/133)) ([af47dd0](https://github.com/hugomods/decap-cms/commit/af47dd02306214f3797114a274dfa9f3b767738e))
+
 ## [0.11.2](https://github.com/hugomods/decap-cms/compare/v0.11.1...v0.11.2) (2024-02-01)
 
 
