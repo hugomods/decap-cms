@@ -39,14 +39,7 @@ i18n = true
 name = "authors"
 label = "Authors"
 required = false
-widget = "list"
-summary = "{{fields.author}}"
-collapsed = true
-minimize_collapsed = true
-[params.decap_cms._configs.field_authors.fields.authors.field]
-label = "Author"
-name = "author"
-widget = "string"
+widget = "strings"
 
 [params.decap_cms._configs.field_body.fields.body]
 i18n = true
@@ -59,14 +52,7 @@ i18n = true
 name = "categories"
 label = "Categories"
 required = false
-widget = "list"
-summary = "{{fields.category}}"
-collapsed = true
-minimize_collapsed = true
-[params.decap_cms._configs.field_categories.fields.categories.field]
-label = "Category"
-name = "category"
-widget = "string"
+widget = "strings"
 
 [params.decap_cms._configs.field_date.fields.date]
 i18n = true
@@ -116,14 +102,7 @@ i18n = true
 name = "keywords"
 label = "Keywords"
 required = false
-widget = "list"
-summary = "{{fields.keyword}}"
-collapsed = true
-minimize_collapsed = true
-[params.decap_cms._configs.field_keywords.fields.keywords.field]
-label = "Keyword"
-name = "keyword"
-widget = "string"
+widget = "strings"
 
 [params.decap_cms._configs.field_lastmod.fields.lastmod]
 i18n = true
@@ -160,14 +139,7 @@ i18n = true
 name = "series"
 label = "Series"
 required = false
-widget = "list"
-summary = "{{fields.series}}"
-collapsed = true
-minimize_collapsed = true
-[params.decap_cms._configs.field_series.fields.series.field]
-label = "Series"
-name = "series"
-widget = "string"
+widget = "strings"
 
 [params.decap_cms._configs.field_slug.fields.slug]
 i18n = "duplicate"
@@ -187,14 +159,7 @@ i18n = true
 name = "tags"
 label = "Tags"
 required = false
-widget = "list"
-summary = "{{fields.tag}}"
-collapsed = true
-minimize_collapsed = true
-[params.decap_cms._configs.field_tags.fields.tags.field]
-label = "Tag"
-name = "tag"
-widget = "string"
+widget = "strings"
 
 [params.decap_cms._configs.field_title.fields.title]
 i18n = true
