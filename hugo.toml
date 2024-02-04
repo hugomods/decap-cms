@@ -66,6 +66,7 @@ i18n = true
 name = "description"
 label = "Description"
 widget = "text"
+required = false
 
 [params.decap_cms._configs.field_draft.fields.draft]
 i18n = true
