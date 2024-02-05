@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.13.0](https://github.com/hugomods/decap-cms/compare/v0.12.1...v0.13.0) (2024-02-05)
+
+
+### Features ✨
+
+* add _disable parameter for disabling fields ([#145](https://github.com/hugomods/decap-cms/issues/145)) ([44f6084](https://github.com/hugomods/decap-cms/commit/44f608497877698f14c73ac05c24fe17e7dda74f))
+
+
+### Bug Fixes 🐞
+
+* custom fields weight ([#143](https://github.com/hugomods/decap-cms/issues/143)) ([233d6d1](https://github.com/hugomods/decap-cms/commit/233d6d13719c4375ce21d80afbeb335dc73b944e))
+
 ## [0.12.1](https://github.com/hugomods/decap-cms/compare/v0.12.0...v0.12.1) (2024-02-05)
 
 
