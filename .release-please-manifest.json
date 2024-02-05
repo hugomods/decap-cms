@@ -1,5 +1,5 @@
 {
-    ".": "0.12.0",
+    ".": "0.12.1",
     "editor-components/todo": "0.1.2",
     "widgets/url": "0.1.2"
 }

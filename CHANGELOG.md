@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.12.1](https://github.com/hugomods/decap-cms/compare/v0.12.0...v0.12.1) (2024-02-05)
+
+
+### Bug Fixes 🐞
+
+* change description field to be optional ([#138](https://github.com/hugomods/decap-cms/issues/138)) ([0e58735](https://github.com/hugomods/decap-cms/commit/0e587352964035875c64161081a20028747efc9c))
+* change summary field to be optional ([#140](https://github.com/hugomods/decap-cms/issues/140)) ([f188cde](https://github.com/hugomods/decap-cms/commit/f188cde710a1331546144e613bc3ad53eedb31ac))
+
 ## [0.12.0](https://github.com/hugomods/decap-cms/compare/v0.11.2...v0.12.0) (2024-02-03)
 
 
