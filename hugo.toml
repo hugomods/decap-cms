@@ -154,6 +154,7 @@ i18n = true
 name = "summary"
 label = "Summary"
 widget = "text"
+required = false
 
 [params.decap_cms._configs.field_tags.fields.tags]
 i18n = true
