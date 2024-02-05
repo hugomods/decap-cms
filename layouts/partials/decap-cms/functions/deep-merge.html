@@ -48,6 +48,16 @@
             {{- $fieldName := .name }}
             {{- $field := partial "decap-cms/functions/dict2scratch" . }}
             {{- $currentWeight := $field.Get "_weight" }}
+            {{/* Ignore disabled field. */}}
+            {{- if default false ($field.Get "_disable") }}
+              {{- if isset $values $fieldName }}
+                {{- $newValues := newScratch }}
+                {{- $newValues.Set "v" $values }}
+                {{- $newValues.DeleteInMap "v" $fieldName }}
+                {{- $values = $newValues.Get "v" }}
+              {{- end }}
+              {{- continue }}
+            {{- end }}
             {{- if isset $values $fieldName }}
               {{- with $currentWeight }}
                 {{/* Override the weight if presents and belongs to the last collection. */}}
