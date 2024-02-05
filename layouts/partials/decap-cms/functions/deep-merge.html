@@ -1,6 +1,9 @@
 {{- $rst := newScratch }}
 {{/* Walk the collections. */}}
-{{- range . }}
+{{- $collectionCount := len . }}
+{{- range $i, $collection := . }}
+  {{/* Indicates whether if current collection the last one. */}}
+  {{- $last := eq $collectionCount (add $i 1) }}
   {{/* Walk the collection's definitions. */}}
   {{- range $key, $items := . }}
     {{- with $rst.Get $key }}
@@ -44,11 +47,20 @@
           {{- range sort $items "_weight" }}
             {{- $fieldName := .name }}
             {{- $field := partial "decap-cms/functions/dict2scratch" . }}
+            {{- $currentWeight := $field.Get "_weight" }}
             {{- if isset $values $fieldName }}
-              {{- $field.Delete "_weight" }}
+              {{- with $currentWeight }}
+                {{/* Override the weight if presents and belongs to the last collection. */}}
+                {{- if or (not $last) (eq . 1) }}
+                  {{- $field.Delete "_weight" }}
+                {{- end }}
+              {{- end }}
             {{- else }}
-              {{- $fieldWeight = add $fieldWeight 1 }}
-              {{- $field.Set "_weight" $fieldWeight }}
+              {{/* Keep the specified weight if the field belongs to the last collection. */}}
+              {{- if or (not $last) (not $currentWeight) (eq $currentWeight 1) }}
+                {{- $fieldWeight = add $fieldWeight 1 }}
+                {{- $field.Set "_weight" $fieldWeight }}
+              {{- end }}
             {{- end }}
             {{- $tmp := dict }}
             {{- range $k, $v := $field.Values }}
