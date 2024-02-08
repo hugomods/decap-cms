@@ -1,0 +1,13 @@
+{{- if .Page.IsHome }}
+<script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = {{ site.Params.decap_cms._netlify_identity.admin_path }};
+          });
+        }
+      });
+    }
+</script>
+{{- end }}
