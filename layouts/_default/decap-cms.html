@@ -8,11 +8,13 @@
     {{- with site.Home.OutputFormats.Get "DecapCMSConfig" }}
       <link href="{{ .RelPermalink }}" type="text/yaml" rel="cms-config-url" />
     {{- end }}
-    {{ partialCached "decap-cms/hooks/head-end" . }}
+    {{- partialCached "decap-cms/hooks/head-end" . }}
+    {{- partial "hugopress/functions/render-hooks" (dict "Name" "decap-cms-head-end" "Page" .) }}
   </head>
   <body>
-    {{ partialCached "decap-cms/script" . }}
-    {{ partialCached "decap-cms/init" . }}
-    {{ partialCached "decap-cms/hooks/body-end" . }}
+    {{- partialCached "decap-cms/script" . }}
+    {{- partialCached "decap-cms/init" . }}
+    {{- partialCached "decap-cms/hooks/body-end" . }}
+    {{- partial "hugopress/functions/render-hooks" (dict "Name" "decap-cms-body-end" "Page" .) }}
   </body>
 </html>

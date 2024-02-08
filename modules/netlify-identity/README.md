@@ -1,8 +1,9 @@
-In modules.html:
+# Netlify Identity Support for Decap CMS
 
-`hugomods/decap-cms/modules/netlify-identity`
-must be included before
-`hugomods/decap-cms`
-otherwise the identity script will not be loaded in
-`admin/index.html`
+variables are:
 
+```toml
+[params.decap_cms._netlify_identity]
+admin_path = "/admin/"
+js_url = "https://identity.netlify.com/v1/netlify-identity-widget.js"
+```
