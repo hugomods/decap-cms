@@ -16,12 +16,16 @@
     "packages": {
         ".": {
             "exclude-paths": [
-                "widgets",
-                "editor-components"
+                "editor-components",
+                "modules",
+                "widgets"
             ]
         },
         "editor-components/todo": {
             "component": "editor-components/todo"
+        },
+        "modules/netlify-identity": {
+            "component": "modules/netlify-identity"
         },
         "widgets/url": {
             "component": "widgets/url"
