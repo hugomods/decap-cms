@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.14.0](https://github.com/hugomods/decap-cms/compare/v0.13.1...v0.14.0) (2024-02-09)
+
+
+### Features ✨
+
+* add netlify-identity module ([#147](https://github.com/hugomods/decap-cms/issues/147)) ([0e35b70](https://github.com/hugomods/decap-cms/commit/0e35b70775559df4ac7052ba4296a5502f62b3f6))
+
+
+### Bug Fixes 🐞
+
+* print a warning message if the DecapCMSConfig does not present in the home output ([#152](https://github.com/hugomods/decap-cms/issues/152)) ([1f7ccc5](https://github.com/hugomods/decap-cms/commit/1f7ccc5f355fd29bf4a38b89da712511edafa2e3))
+
 ## [0.13.1](https://github.com/hugomods/decap-cms/compare/v0.13.0...v0.13.1) (2024-02-08)
 
 
