@@ -1,0 +1,19 @@
+{{- $adminPath := "" }}
+{{- range where site.Pages "Layout" "decap-cms" }}
+  {{- $adminPath = .RelPermalink }}
+  {{- break }}
+{{- end }}
+{{- if ne $adminPath "" }}
+  {{- $targetPath := "js/netlify-identity-callback.js" }}
+  {{- $opts := dict
+    "targetPath" $targetPath
+    "minify" hugo.IsProduction
+    "params" (dict
+      "admin_path" $adminPath)
+  }}
+  {{- $js := resources.Get "decap-cms/modules/netlify-identity/callback.js" | js.Build $opts }}
+  {{- if hugo.IsProduction }}
+    {{- $js = $js | fingerprint }}
+  {{- end }}
+  <script src="{{ $js.RelPermalink }}"></script>
+{{- end }}
