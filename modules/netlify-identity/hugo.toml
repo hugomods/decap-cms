@@ -9,5 +9,4 @@ path = "github.com/hugomods/decap-cms"
 cacheable = true
 
 [params.decap_cms._netlify_identity]
-admin_path = "/admin/"
 js_url = "https://identity.netlify.com/v1/netlify-identity-widget.js"
