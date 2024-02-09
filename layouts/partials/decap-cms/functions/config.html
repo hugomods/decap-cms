@@ -8,7 +8,12 @@
 {{- range $keys -}}
   {{- $key := . -}}
   {{- if isset $params $key -}}
-    {{- $config.Set $key (index $params $key) -}}
+    {{- $val := index $params $key }}
+    {{/* Ignore empty value. */}}
+    {{- if eq $val "" }}
+      {{- continue }}
+    {{- end }}
+    {{- $config.Set $key $val -}}
   {{- end -}}
 {{- end -}}
 {{- $definitions := partial "decap-cms/functions/definitions" (default dict (index $params "_configs")) }}

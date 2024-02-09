@@ -7,6 +7,8 @@
     <title>{{ .Title }}</title>
     {{- with site.Home.OutputFormats.Get "DecapCMSConfig" }}
       <link href="{{ .RelPermalink }}" type="text/yaml" rel="cms-config-url" />
+    {{- else }}
+      {{- warnf "[decap-cms] please append %q into the %q output in configuration." "DecapCMSConfig" "home" }}
     {{- end }}
     {{- partialCached "decap-cms/hooks/head-end" . }}
     {{- partial "hugopress/functions/render-hooks" (dict "Name" "decap-cms-head-end" "Page" .) }}
