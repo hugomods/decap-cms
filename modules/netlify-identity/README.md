@@ -12,7 +12,7 @@ js_url = "https://identity.netlify.com/v1/netlify-identity-widget.js"
 If your theme doesn't implement HugoPress, you will need to inject the following partials into your homepage.
 
 ```html
-{{- if .Page.IsHome }}
+{{- if .IsHome }}
   {{ partialCached "hugopress/modules/decap-cms-netlify-identity/script" . }}
   {{ partialCached "hugopress/modules/decap-cms-netlify-identity/callback-script" . }}
 {{- end }}
