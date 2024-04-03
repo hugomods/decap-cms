@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.4](https://github.com/hugomods/decap-cms/compare/v0.14.3...v0.14.4) (2024-04-03)
+
+
+### Continuous Integration
+
+* **deps:** bump decap-cms to v3.1.7 ([9242048](https://github.com/hugomods/decap-cms/commit/9242048443a1951fa231d6611eca8f6a30d562c5))
+
 ## [0.14.3](https://github.com/hugomods/decap-cms/compare/v0.14.2...v0.14.3) (2024-03-30)
 
 
