@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/hugomods/decap-cms/compare/v0.14.7...v0.15.0) (2024-05-28)
+
+
+### Features ✨
+
+* **i18n:** add Vietnamese translations ([35e4be0](https://github.com/hugomods/decap-cms/commit/35e4be037cd2c1743501b7b7d590e238f86d79a6))
+
 ## [0.14.7](https://github.com/hugomods/decap-cms/compare/v0.14.6...v0.14.7) (2024-04-18)
 
 
