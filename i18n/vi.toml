@@ -1,0 +1,83 @@
+[cms_field_label_alias]
+other = "Alias"
+
+[cms_field_label_aliases]
+other = "Aliases"
+
+[cms_field_label_author]
+other = "Author"
+
+[cms_field_label_authors]
+other = "Authors"
+
+[cms_field_label_body]
+other = "Body"
+
+[cms_field_label_categories]
+other = "Categories"
+
+[cms_field_label_category]
+other = "Category"
+
+[cms_field_label_date]
+other = "Date"
+
+[cms_field_label_description]
+other = "Description"
+
+[cms_field_label_draft]
+other = "Draft"
+
+[cms_field_label_expiry_date]
+other = "Expiry Date"
+
+[cms_field_label_image]
+other = "Image"
+
+[cms_field_label_images]
+other = "Images"
+
+[cms_field_label_keyword]
+other = "Keyword"
+
+[cms_field_label_keywords]
+other = "Keywords"
+
+[cms_field_label_lastmod]
+other = "Last Modified"
+
+[cms_field_label_layout]
+other = "Layout"
+
+[cms_field_label_link_title]
+other = "Link Title"
+
+[cms_field_label_noindex]
+other = "Noindex"
+
+[cms_field_label_path]
+other = "Path"
+
+[cms_field_label_series]
+other = "Series"
+
+[cms_field_label_slug]
+other = "Slug"
+
+[cms_field_label_summary]
+other = "Summary"
+
+[cms_field_label_tag]
+other = "Tag"
+
+[cms_field_label_tags]
+other = "Tags"
+
+[cms_field_label_title]
+other = "Title"
+
+[cms_field_label_type]
+other = "Type"
+
+[cms_field_label_weight]
+other = "Weight"
