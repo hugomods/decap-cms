@@ -12,7 +12,11 @@
   {{- end }}
 {{- end }}
 {{- $css := resources.Get "decap-cms/scss/index.scss.tmpl" | resources.ExecuteAsTemplate "decap-cms/scss/index.scss" $ctx }}
-{{- $css = $css | toCSS (dict "targetPath" "css/decap-cms.css" "outputStyle" (cond hugo.IsProduction "compressed" "")) }}
+{{- $css = $css | toCSS (dict
+  "transpiler" (default "dartsass" site.Params.decap_cms.sass_transpiler)
+  "targetPath" "css/decap-cms.css"
+  "outputStyle" (cond hugo.IsProduction "compressed" ""))
+}}
 {{- $css = $css | fingerprint }}
 {{- printf `CMS.registerPreviewStyle("%s");` $css.Permalink }}
 {{/* TODO: remove preview_styles in future versions. */}}

@@ -13,6 +13,7 @@ notAlternative = true
 mediaType = "application/yaml"
 
 [params.decap_cms]
+sass_transpiler = "dartsass"
 _js_url = ""
 # local_backend = false
 publish_mode = "editorial_workflow"
