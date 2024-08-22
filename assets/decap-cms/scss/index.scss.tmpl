@@ -1,4 +1,4 @@
 {{- range default slice (resources.Match "decap-cms/scss/**/*.scss") }}
-  {{- replace .Name "decap-cms/scss/" "" | printf `@import "%s";` }}
+  {{- strings.TrimPrefix "/" (replace .Name "decap-cms/scss/" "") | printf `@import "%s";` }}
 {{- end }}
 @import "custom";
