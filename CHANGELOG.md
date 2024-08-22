@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.1](https://github.com/hugomods/decap-cms/compare/v0.16.0...v0.16.1) (2024-08-22)
+
+
+### Bug Fixes 🐞
+
+* compatibled with Dart Sass ([1f3e39e](https://github.com/hugomods/decap-cms/commit/1f3e39e96573b6507ab12935c7a163268f53dba6))
+
 ## [0.16.0](https://github.com/hugomods/decap-cms/compare/v0.15.1...v0.16.0) (2024-08-22)
 
 
