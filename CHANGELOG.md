@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0](https://github.com/hugomods/decap-cms/compare/v0.15.1...v0.16.0) (2024-08-22)
+
+
+### Features ✨
+
+* add the decap_cms.sass_transpiler parameter, default to dartsass ([2d7174f](https://github.com/hugomods/decap-cms/commit/2d7174f96ec028dc74b2af5ed5701299e983e5c9))
+
 ## [0.15.1](https://github.com/hugomods/decap-cms/compare/v0.15.0...v0.15.1) (2024-08-20)
 
 
