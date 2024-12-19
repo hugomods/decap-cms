@@ -20,7 +20,7 @@
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-scss": "^6.0.0",
     "ts-standard": "^12.0.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^6.0.0"
   },
   "scripts": {
     "build": "webpack",
