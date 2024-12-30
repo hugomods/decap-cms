@@ -14,6 +14,7 @@
 {{- $css := resources.Get "decap-cms/scss/index.scss.tmpl" | resources.ExecuteAsTemplate "decap-cms/scss/index.scss" $ctx }}
 {{- $css = $css | toCSS (dict
   "transpiler" (default "dartsass" site.Params.decap_cms.sass_transpiler)
+  "silenceDeprecations" (slice "import" "global-builtin" "color-functions")
   "targetPath" "css/decap-cms.css"
   "outputStyle" (cond hugo.IsProduction "compressed" ""))
 }}
