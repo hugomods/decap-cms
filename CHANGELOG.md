@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.16.3](https://github.com/hugomods/decap-cms/compare/v0.16.2...v0.16.3) (2024-12-30)
+
+
+### Continuous Integration
+
+* **deps:** bump Hugo minimal version to 0.139.0 to silence Dart Sass warnings ([f7cd9d7](https://github.com/hugomods/decap-cms/commit/f7cd9d70e8b9c04c64dab83ff140301863e45a70))
+
+
+### Bug Fixes 🐞
+
+* ignore Dart Sass deprecated warnings ([#255](https://github.com/hugomods/decap-cms/issues/255)) ([f24dd36](https://github.com/hugomods/decap-cms/commit/f24dd369de5e71ba630225c0464ac5cc34077a79)), closes [#253](https://github.com/hugomods/decap-cms/issues/253)
+
 ## [0.16.2](https://github.com/hugomods/decap-cms/compare/v0.16.1...v0.16.2) (2024-12-30)
 
 
