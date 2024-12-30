@@ -26,5 +26,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.MAINTAINER_TOKEN }}
+          # token: ${{ secrets.MAINTAINER_TOKEN }}
+          title: 'ci(deps): bump decap-cms to ${{ steps.version.outputs.number }}'
           commit-message: 'ci(deps): bump decap-cms to ${{ steps.version.outputs.number }}'
