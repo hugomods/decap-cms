@@ -21,6 +21,7 @@ jobs:
       - id: version
         run: |
           VERSION=$(npm list decap-cms |  grep -P '\d+([\d\.]+)' -o)
+          echo ${VERSION}
           echo "number=${VERSION}" >> "$GITHUB_OUTPUT"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
