@@ -1,5 +1,5 @@
 [module.hugoVersion]
-min = "0.111.3"
+min = "0.139.0"
 # extended = true
 
 [[module.imports]]
