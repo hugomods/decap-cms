@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.4](https://github.com/hugomods/decap-cms/compare/v0.16.3...v0.16.4) (2025-01-15)
+
+
+### Continuous Integration
+
+* **deps:** bump decap-cms to 3.5.0 ([#263](https://github.com/hugomods/decap-cms/issues/263)) ([18eb448](https://github.com/hugomods/decap-cms/commit/18eb44870a6d3f1eeaf1f236403876cbb5f518d6))
+
 ## [0.16.3](https://github.com/hugomods/decap-cms/compare/v0.16.2...v0.16.3) (2024-12-30)
 
 
