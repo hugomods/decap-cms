@@ -1,5 +1,5 @@
 {
-    ".": "0.16.6",
+    ".": "0.16.7",
     "editor-components/todo": "0.1.2",
     "modules/netlify-identity": "0.1.1",
     "widgets/url": "0.1.2"
